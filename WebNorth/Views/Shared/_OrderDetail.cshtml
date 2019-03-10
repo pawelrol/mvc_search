@@ -1,0 +1,20 @@
+﻿@model Orders
+
+<td>@Model.CustomerId</td>
+<td>@Model.Employee</td>
+<td>@Model.ShipCity</td>
+<td>@Model.ShipPostalCode</td>
+@if (Model.ShippedDate != null)
+{
+    <td>@Model.ShippedDate.Value.ToShortDateString()</td>
+}
+else
+{
+    <td></td>
+}
+
+
+
+
+
+

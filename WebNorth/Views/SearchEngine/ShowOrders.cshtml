@@ -1,0 +1,47 @@
+﻿@model List<Orders>
+
+<h2>MainShowOrders</h2>
+
+<div class="container">
+
+    <div class="btn-group show-on-hover">
+        @*<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a asp-controller="SearchEngine" asp-action="ShowOrders">ASC</a></li>
+            <li><a asp-controller="SearchEngine" asp-action="ShowOrders">DESC</a></li>
+        </ul>*@
+
+        <form asp-controller="SearchEngine" asp-action="ShowOrders">
+            <select name="sort">
+                <option value="asc">asc</option>
+                <option value="desc">desc</option>
+            </select>
+            <br><br>
+            <button type="submit" class="btn btn-primary btn-sm">Sort</button>
+        </form>
+
+
+    </div>
+
+    <br />
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table>
+
+            @foreach (var order in Model)
+            {
+                <tr>
+                    @Html.Partial("../Shared/_OrderDetail.cshtml", order)
+                </tr>
+            }
+
+        </table>
+
+
+    }
+
+</div>
+
